@@ -1,0 +1,41 @@
+HEART MODEL (target=heart disease from heart-data.csv)
+Target distribution: {1: 526, 0: 499}
+Best threshold on validation: 0.420
+Validation F1 at threshold: 0.958
+Classification report on test split:
+              precision    recall  f1-score   support
+
+           0      0.930     0.930     0.930       100
+           1      0.933     0.933     0.933       105
+
+    accuracy                          0.932       205
+   macro avg      0.932     0.932     0.932       205
+weighted avg      0.932     0.932     0.932       205
+
+Confusion matrix on test split:
+[[93  7]
+ [ 7 98]]
+
+STROKE MODEL (target=stroke from stroke-data.csv)
+Target distribution: {0: 4861, 1: 249}
+Best threshold on validation: 0.130
+Validation F1 at threshold: 0.178
+Classification report on test split:
+              precision    recall  f1-score   support
+
+           0      0.961     0.915     0.937       972
+           1      0.144     0.280     0.190        50
+
+    accuracy                          0.884      1022
+   macro avg      0.553     0.597     0.564      1022
+weighted avg      0.921     0.884     0.901      1022
+
+Confusion matrix on test split:
+[[889  83]
+ [ 36  14]]
+
+Final app class mapping:
+heart=0, stroke=0 => neither
+heart=1, stroke=0 => heart_disease
+heart=0, stroke=1 => stroke
+heart=1, stroke=1 => both
