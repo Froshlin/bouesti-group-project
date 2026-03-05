@@ -51,6 +51,24 @@ st.markdown(
         color: #102a43 !important;
         font-weight: 600 !important;
     }
+    .side-logo {
+        width: 56px;
+        height: 56px;
+        border-radius: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        color: #ffffff;
+        background: linear-gradient(135deg, #0f766e 0%, #0d2238 100%);
+        margin-bottom: 0.5rem;
+    }
+    .side-title {
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: #e6eef8;
+        margin: 0 0 1rem 0;
+    }
     </style>
     """,
     unsafe_allow_html=True,
@@ -97,11 +115,10 @@ heart_threshold = float(thresholds.get("heart", 0.5))
 stroke_threshold = float(thresholds.get("stroke", 0.5))
 
 with st.sidebar:
-    st.subheader("System status")
-    st.write(f"Model path: `{MODEL_PATH}`")
-    st.write(f"Model format: `v{payload.get('version')}`")
-    st.write(f"Heart threshold: `{heart_threshold:.2f}`")
-    st.write(f"Stroke threshold: `{stroke_threshold:.2f}`")
+    st.markdown('<div class="side-logo">CR</div>', unsafe_allow_html=True)
+    st.markdown('<p class="side-title">Cardio Risk</p>', unsafe_allow_html=True)
+    if st.button("Home", use_container_width=True):
+        st.rerun()
 
 
 def parse_value(raw: str, caster):
